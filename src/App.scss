@@ -3,10 +3,10 @@ $body-bg: rgb(255, 255, 255);
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
 
-.app {
-    h1 {
-        color: red;
-    }
-}
 
-    
+.navbar-light .navbar-nav .show>.nav-link,
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+    color: red;
+}

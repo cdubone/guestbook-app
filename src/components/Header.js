@@ -7,11 +7,9 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
 
-
-
 const Header = () => {
 
-      const [navigationData, setNavigationData] = useState([]);
+    const [navigationData, setNavigationData] = useState([]);
 
     useEffect(() => {
         getHeaderData();
