@@ -1,36 +1,31 @@
 import React, { useEffect, useState  } from 'react';
 import Button from 'react-bootstrap/Button';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import Card from 'react-bootstrap/Card';
 
-const HomePage = () => {
+const ArrivalPage = () => {
 
-const [homepageData, setHomepageData] = useState({});
+const [arrivalPageData, setArrivalPageData] = useState({});
 
     useEffect(() => {
         console.log('use effect');
-        getHomepageData();
+        getarrivalPageData();
     }, []);
 
-    const getHomepageData = async () => {
-        const response = await fetch('http://localhost:3001/homePage');
+    const getarrivalPageData = async () => {
+        const response = await fetch('http://localhost:3001/arrivalPage');
         const data = await response.json();
-        setHomepageData(data);
+        setArrivalPageData(data);
         console.log(data);
     }
 
     return (
         <>
         <div className="container-fluid">
-            <Jumbotron>
-                <h3>{homepageData.welcome_header}</h3>
-                <p>{homepageData.welcome_msg}</p>
-                <Button variant="primary">{homepageData.button_text}</Button>
-            </Jumbotron>
+
+            <h3>{arrivalPageData.welcome_header}</h3>
 
             <div className="row">
-
-                {homepageData.cards && homepageData.cards.map(card => (
+                {arrivalPageData.cards && arrivalPageData.cards.map(card => (
                     <div key={card.id} className="col-md-4">
                         <Card>
                             <Card.Img variant="top" src={card.image} />
@@ -49,4 +44,4 @@ const [homepageData, setHomepageData] = useState({});
     );
 };
 
-export default HomePage;
+export default ArrivalPage;

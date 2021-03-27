@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import { NavLink } from "react-router-dom";
 
 
 
@@ -13,7 +14,6 @@ const Header = () => {
       const [navigationData, setNavigationData] = useState([]);
 
     useEffect(() => {
-        console.log('use effect');
         getHeaderData();
     }, []);
 
@@ -21,25 +21,24 @@ const Header = () => {
         const response = await fetch('http://localhost:3001/navigation');
         const data = await response.json();
         setNavigationData(data);
-        console.log(data);
     }
 
     return (
         <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Guestbook App</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-            {navigationData.map(navitem => (
-                <Nav.Link key={navitem.key} href="/">{navitem.display}</Nav.Link>
-            ))}
-        </Nav>
-        <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-        </Form>
-        </Navbar.Collapse>
-    </Navbar>
+            <NavLink className="navbar-brand" to="/">Guestbook App</NavLink>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+                {navigationData.map(navitem => (
+                    <NavLink key={navitem.id} className="nav-link" to={navitem.path}>{navitem.display}</NavLink>
+                ))}
+            </Nav>
+            <Form inline>
+                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                <Button variant="secondary">Search</Button>
+            </Form>
+            </Navbar.Collapse>
+        </Navbar>
     );
 };
 
