@@ -1,13 +1,13 @@
 import './App.scss';
 
 import Header from './components/Header'
-import Content from './components/Content'
+import HomePage from './components/HomePage'
 
 function App() {
   return (
     <>
       <Header />
-      <Content />
+      <HomePage />
     </>
   );
 }
