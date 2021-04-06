@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from 'react';
+import React, { useRef  } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -6,20 +6,20 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
+import  { useFetch }  from '../hooks/useFetch';
 
 const Header = () => {
 
-    const [navigationData, setNavigationData] = useState([]);
+    const isComponentMounted = useRef(true);
 
-    useEffect(() => {
-        getHeaderData();
-    }, []);
+    const { data, loading, error } = useFetch(
+        "navigation",
+        isComponentMounted,
+        []
+    );
 
-    const getHeaderData = async () => {
-        const response = await fetch('http://localhost:3001/navigation');
-        const data = await response.json();
-        setNavigationData(data);
-    }
+    if (error)
+        console.log(error);
 
     return (
         <Navbar bg="light" expand="lg">
@@ -27,7 +27,7 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                {navigationData.map(navitem => (
+                {data.map(navitem => (
                     <NavLink key={navitem.id} className="nav-link" to={navitem.path}>{navitem.display}</NavLink>
                 ))}
             </Nav>

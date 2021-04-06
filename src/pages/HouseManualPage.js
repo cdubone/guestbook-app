@@ -1,38 +1,41 @@
-import React, { useEffect, useState  } from 'react';
+import React, { useRef  } from 'react';
 import CardComponent from '../components/CardComponent';
+import  { useFetch }  from '../hooks/useFetch';
 
 const HouseManualPage = () => {
 
-const [houseManualData, setHouseManualData] = useState({});
+    const isComponentMounted = useRef(true);
 
-    useEffect(() => {
-        getHouseManualData();
-    }, []);
+    const { data, loading, error } = useFetch(
+        "houseManualPage",
+        isComponentMounted,
+        []
+    );
 
-    const getHouseManualData = async () => {
-        const response = await fetch('http://localhost:3001/houseManualPage');
-        const data = await response.json();
-        setHouseManualData(data);
-    }
+    console.log(error);
 
     return (
         <>
-        <div className="container-fluid">
+        {loading ? (
+            <div>Loading data...</div>
+        ) : ( 
+            <div className="container-fluid">
 
-            <h3>{houseManualData.welcome_header}</h3>
+                <h3>{data.welcome_header}</h3>
 
-            <div className="row">
-                {houseManualData.cards && houseManualData.cards.map(card => (
-                    <div key={card.id} className="col-md-4">
-                        <CardComponent image={card.image}
-                                       card_title={card.card_title}
-                                       card_text={card.card_text} 
-                                       path={card.path}
-                                       button_text={card.button_text} />
-                    </div>
-                ))} 
+                <div className="row">
+                    {data.cards && data.cards.map(card => (
+                        <div key={card.id} className="col-md-4">
+                            <CardComponent image={card.image}
+                                        card_title={card.card_title}
+                                        card_text={card.card_text} 
+                                        path={card.path}
+                                        button_text={card.button_text} />
+                        </div>
+                    ))} 
+                </div>
             </div>
-        </div>
+        )}
         </>
     );
 };

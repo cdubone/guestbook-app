@@ -8,5 +8,10 @@ $body-bg: rgb(255, 255, 255);
 .navbar-light .navbar-nav .active>.nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-    color: red;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.card {
+    margin-bottom: 1.8rem;
 }
