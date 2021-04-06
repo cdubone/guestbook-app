@@ -1,6 +1,7 @@
 import React, { useRef  } from 'react';
 import CardComponent from '../components/CardComponent';
 import  { useFetch }  from '../hooks/useFetch';
+import CenteredSpinner from '../components/CenteredSpinner';
 
 const AreaInformationPage = () => {
 
@@ -12,12 +13,13 @@ const AreaInformationPage = () => {
         []
     );
 
-    console.log(error);
+    if (error)
+        console.log(error);
 
     return (
         <>
         {loading ? (
-            <div>Loading data...</div>
+            <CenteredSpinner />
         ) : ( 
             <div className="container-fluid">
 

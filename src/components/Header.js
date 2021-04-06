@@ -7,6 +7,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
 import  { useFetch }  from '../hooks/useFetch';
+import CenteredSpinner from '../components/CenteredSpinner';
 
 const Header = () => {
 
@@ -27,9 +28,13 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                {data.map(navitem => (
-                    <NavLink key={navitem.id} className="nav-link" to={navitem.path}>{navitem.display}</NavLink>
-                ))}
+                {loading ? (
+                    <CenteredSpinner />
+                ) : ( 
+                    data.map(navitem => (
+                        <NavLink key={navitem.id} className="nav-link" to={navitem.path}>{navitem.display}</NavLink>
+                    ))
+                )}
             </Nav>
             <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />

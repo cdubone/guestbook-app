@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import CardComponent from '../components/CardComponent';
 import  { useFetch }  from '../hooks/useFetch';
+import CenteredSpinner from '../components/CenteredSpinner';
 
 const HomePage = () => {
 
@@ -14,12 +15,13 @@ const HomePage = () => {
         []
     );
 
-    console.log(error);
+    if (error)
+        console.log(error);
 
     return (
         <>
         {loading ? (
-            <div>Loading data...</div>
+            <CenteredSpinner />
         ) : ( 
             <div className="container-fluid">
                 <Jumbotron>

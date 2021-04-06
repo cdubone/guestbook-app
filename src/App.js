@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import ArrivalPage from './pages/ArrivalPage';
 import HouseManualPage from './pages/HouseManualPage';
 import AreaInformationPage from './pages/AreaInformationPage';
+import RestaurantsPage from './pages/RestaurantsPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/arrival" component={ArrivalPage} />
       <Route path="/house-manual" component={HouseManualPage} />
       <Route path="/area-information" component={AreaInformationPage} />
+      <Route path="/places-to-eat" component={RestaurantsPage} />
     </>
   );
 }
