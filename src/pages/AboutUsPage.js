@@ -3,12 +3,12 @@ import CardComponent from '../components/CardComponent';
 import  { useFetch }  from '../hooks/useFetch';
 import CenteredSpinner from '../components/CenteredSpinner';
 
-const AreaInformationPage = () => {
+const AboutUsPage = () => {
 
     const isComponentMounted = useRef(true);
 
     const { data, loading, error } = useFetch(
-        "restaurantsPage",
+        "aboutUsPage",
         isComponentMounted,
         []
     );
@@ -43,4 +43,4 @@ const AreaInformationPage = () => {
     );
 };
 
-export default AreaInformationPage;
+export default AboutUsPage;

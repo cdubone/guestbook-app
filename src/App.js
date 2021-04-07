@@ -7,6 +7,9 @@ import ArrivalPage from './pages/ArrivalPage';
 import HouseManualPage from './pages/HouseManualPage';
 import AreaInformationPage from './pages/AreaInformationPage';
 import RestaurantsPage from './pages/RestaurantsPage';
+import ShoppingPage from './pages/ShoppingPage';
+import DeparturePage from './pages/DeparturePage';
+import AboutUsPage from './pages/AboutUsPage';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
       <Route path="/house-manual" component={HouseManualPage} />
       <Route path="/area-information" component={AreaInformationPage} />
       <Route path="/places-to-eat" component={RestaurantsPage} />
+      <Route path="/shopping" component={ShoppingPage} />
+      <Route path="/departure" component={DeparturePage} />
+      <Route path="/about-us" component={AboutUsPage} />
     </>
   );
 }

@@ -7,6 +7,7 @@ body, #root {
     height: 100vh;
 }
 
+//Override bootstrap styles
 .navbar-light .navbar-nav .show>.nav-link,
 .navbar-light .navbar-nav .active>.nav-link,
 .navbar-light .navbar-nav .nav-link.show,
@@ -17,6 +18,12 @@ body, #root {
 
 .navbar {
     margin-bottom: 1.8rem;
+
+    .nav-link {
+        text-align: center;
+        align-items: center;
+        display: flex;
+    }
 }
 
 .centered-spinner {
