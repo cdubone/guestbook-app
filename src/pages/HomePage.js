@@ -1,4 +1,5 @@
 import React, { useRef  } from 'react';
+import { NavLink } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import CardComponent from '../components/CardComponent';
@@ -27,7 +28,8 @@ const HomePage = () => {
                 <Jumbotron>
                     <h3>{data.welcome_header}</h3>
                     <p>{data.welcome_msg}</p>
-                    <Button variant="primary">{data.button_text}</Button>
+                    <NavLink className="btn btn-primary" to={data.link_destination}>{data.link_text}</NavLink>
+                    {/* <Button variant="primary">{data.link_text}</Button> */}
                 </Jumbotron>
 
                 <div className="row">
