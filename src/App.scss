@@ -3,6 +3,9 @@ $body-bg: rgb(255, 255, 255);
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
 
+body, #root {
+    height: 100vh;
+}
 
 .navbar-light .navbar-nav .show>.nav-link,
 .navbar-light .navbar-nav .active>.nav-link,
@@ -10,6 +13,18 @@ $body-bg: rgb(255, 255, 255);
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--primary);
     font-weight: bold;
+}
+
+.navbar {
+    margin-bottom: 1.8rem;
+}
+
+.centered-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
 
 .card {
