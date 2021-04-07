@@ -24,6 +24,15 @@ body, #root {
         align-items: center;
         display: flex;
     }
+
+    h1 {
+        font-size: 1.35rem;
+        margin-bottom: 0;
+    }
+
+    .subhead {
+        font-size: 1rem;
+    }
 }
 
 .centered-spinner {

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (name, ref, initialValue) => {
+export const useFetch = (path, ref, initialValue) => {
+
   const [data, setData] = useState(initialValue);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const url = "http://localhost:3001/" + name;
+  const url = "http://localhost:3001/" + path;
 
   useEffect(() => {
     if (ref.current) {

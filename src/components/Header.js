@@ -14,24 +14,29 @@ const Header = () => {
     const isComponentMounted = useRef(true);
 
     const { data, loading, error } = useFetch(
-        "navigation",
+        "header",
         isComponentMounted,
         []
     );
+
+    console.log(data);
 
     if (error)
         console.log(error);
 
     return (
         <Navbar bg="light" expand="lg">
-            <NavLink className="navbar-brand" to="/">Guestbook App</NavLink>
+            <NavLink className="navbar-brand" to="/">
+                <h1>Guestbook</h1>
+                <div className="subhead">{data.location}</div>
+            </NavLink>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
                 {loading ? (
                     <CenteredSpinner />
                 ) : ( 
-                    data.map(navitem => (
+                    data.navigation.map(navitem => (
                         <NavLink key={navitem.id} className="nav-link" to={navitem.path}>{navitem.display}</NavLink>
                     ))
                 )}
