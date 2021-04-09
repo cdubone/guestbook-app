@@ -1,6 +1,7 @@
 import React, { useRef  } from 'react';
 import CardComponent from '../components/CardComponent';
-import  { useFetch }  from '../hooks/useFetch';
+import { useFetch }  from '../hooks/useFetch';
+import { apiPath } from '../helpers/apiPath';
 import CenteredSpinner from '../components/CenteredSpinner';
 
 const HouseManualPage = () => {
@@ -8,7 +9,7 @@ const HouseManualPage = () => {
     const isComponentMounted = useRef(true);
 
     const { data, loading, error } = useFetch(
-        "houseManualPage",
+        apiPath.housemanual,
         isComponentMounted,
         []
     );

@@ -6,7 +6,8 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
-import  { useFetch }  from '../hooks/useFetch';
+import { useFetch }  from '../hooks/useFetch';
+import { apiPath } from '../helpers/apiPath';
 import CenteredSpinner from '../components/CenteredSpinner';
 
 const Header = () => {
@@ -14,12 +15,10 @@ const Header = () => {
     const isComponentMounted = useRef(true);
 
     const { data, loading, error } = useFetch(
-        "header",
+        apiPath.header,
         isComponentMounted,
         []
     );
-
-    console.log(data);
 
     if (error)
         console.log(error);
