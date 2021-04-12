@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CardComponent = (props) => {
 
@@ -10,7 +10,7 @@ const CardComponent = (props) => {
             <Card.Body>
                 <Card.Title>{props.card_title}</Card.Title>
                 <Card.Text>{props.card_text}</Card.Text>
-                { props.path ? <NavLink className="btn btn-primary" to={props.path}>{props.button_text}</NavLink> : null }
+                { props.path ? <Link className="btn btn-primary" to={props.path + "/" + props.id}>{props.button_text}</Link> : null }
             </Card.Body>
         </Card>
     );

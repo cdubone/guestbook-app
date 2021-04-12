@@ -10,6 +10,7 @@ import RestaurantsPage from './pages/RestaurantsPage';
 import ShoppingPage from './pages/ShoppingPage';
 import DeparturePage from './pages/DeparturePage';
 import AboutUsPage from './pages/AboutUsPage';
+import DetailsPage from './pages/DetailsPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/shopping" component={ShoppingPage} />
       <Route path="/departure" component={DeparturePage} />
       <Route path="/about-us" component={AboutUsPage} />
+      <Route path="/details/:id" component={DetailsPage} />
     </>
   );
 }

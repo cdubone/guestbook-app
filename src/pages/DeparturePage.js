@@ -33,7 +33,8 @@ const DeparturePage = () => {
                                                     card_title={card.card_title}
                                                     card_text={card.card_text} 
                                                     path={card.path}
-                                                    button_text={card.button_text} />
+                                                    button_text={card.button_text}
+                                                    id={card.id} />
                                 </div>
                             ))} 
                         </div>
