@@ -24,7 +24,7 @@ function App() {
       <Route path="/shopping" component={ShoppingPage} />
       <Route path="/departure" component={DeparturePage} />
       <Route path="/about-us" component={AboutUsPage} />
-      <Route path="/details/:id" component={DetailsPage} />
+      <Route path="/:id" component={DetailsPage} />
     </>
   );
 }
