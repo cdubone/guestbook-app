@@ -6,6 +6,8 @@ import CenteredSpinner from '../components/CenteredSpinner';
 
 const DetailsPage = props => {
 
+    console.log(props);
+
     // const isComponentMounted = useRef(true);
 
     // const { data, loading, error } = useFetch(
@@ -25,7 +27,6 @@ const DetailsPage = props => {
                 <div className="container-fluid">
 
                     <h3>{props.match.params.id}</h3>
-
                
                 </div>
             {/* )} */}
